@@ -26,8 +26,6 @@ app.use(function(req, res, next) {
   if (db.readyState !== 1) {
     res.status(500);
     res.send({code: 500, reason: "Database Not Connected"})
-    console.log(db.readyState);
-    console.log("Database Not Connected");
   } else {
     next()
   }
@@ -39,7 +37,6 @@ app.use('/restaurants', restaurantsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  console.log("404");
   next(createError(404));
 });
 
